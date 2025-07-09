@@ -12,6 +12,7 @@ def home():
 
 @app.route('/price_predictor',methods=['POST'])
 def predict_operation():
+    
     if (request.method == 'POST'):
         
         data = CustomData(
