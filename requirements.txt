@@ -1,0 +1,12 @@
+pandas
+numpy
+seaborn
+requests
+matplotlib
+jupyter
+scikit-learn
+dataclasses
+flask
+python-dotenv
+
+# -e .

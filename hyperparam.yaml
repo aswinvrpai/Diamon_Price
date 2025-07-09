@@ -1,0 +1,46 @@
+LinearRegression:
+  fit_intercept: [True, False]
+
+Lasso:
+  alpha: [0.0001, 0.001, 0.01, 0.1, 1, 10, 100]
+  fit_intercept: [true, false]
+  max_iter: [1000, 5000, 10000]
+  tol: [0.0001, 0.001, 0.01]
+  positive: [true, false]
+
+Ridge:
+  alpha: [0.1, 1.0, 10.0, 100.0, 1000.0]
+  fit_intercept: [true, false]
+  max_iter: [None, 1000, 5000, 10000]
+  tol: [0.0001, 0.001, 0.01]
+  solver: ['auto', 'svd', 'cholesky', 'lsqr', 'sag', 'saga']
+
+Elasticnet:
+  alpha: [0.0001, 0.001, 0.01, 0.1, 1, 10, 100]
+  l1_ratio: [0.1, 0.3, 0.5, 0.7, 0.9, 1.0]
+  fit_intercept: [true, false]
+  max_iter: [1000, 5000, 10000]
+  tol: [0.0001, 0.001, 0.01]
+  selection: ['cyclic', 'random']
+
+DecisionTreeRegressor:
+  criterion: ['squared_error', 'friedman_mse', 'absolute_error', 'poisson']
+  splitter: ['best', 'random']
+  max_depth: [None, 5, 10, 20, 30, 50]
+  min_samples_split: [2, 5, 10, 20]
+  min_samples_leaf: [1, 2, 4, 8]
+  max_features: ['auto', 'sqrt', 'log2', None]
+  max_leaf_nodes: [None, 10, 20, 50, 100]
+  min_impurity_decrease: [0.0, 0.01, 0.1]
+
+RandomForestRegressor:
+  n_estimators: [10, 50, 100, 200, 500]
+  criterion: ['squared_error', 'absolute_error', 'poisson']
+  max_depth: [None, 5, 10, 20, 30, 50]
+  min_samples_split: [2, 5, 10, 20]
+  min_samples_leaf: [1, 2, 4, 8]
+  max_features: ['auto', 'sqrt', 'log2', None]
+  max_leaf_nodes: [None, 10, 20, 50, 100]
+  bootstrap: [true, false]
+  oob_score: [true, false]
+  max_samples: [None, 0.5, 0.75, 1.0]

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Diamond Price Predictor</h1>
+        <form method="POST" action="/price_predictor">
+            <div class="input-group">
+                <label for="carat">Carat:</label>
+                <input type="number" min="0" step="0.01" id="carat" name="carat" value={{ request.form.get('carat', '') }} required>
+            </div>
+            <div class="input-group">
+                <label for="depth">Depth:</label>
+                <input type="number" min="0" step="0.01" id="depth" name="depth" value={{ request.form.get('depth', '') }} required>
+            </div>
+            <div class="input-group">
+                <label for="table">Table:</label>
+                <input type="number" min="0" step="0.01" id="table" name="table" value={{ request.form.get('table', '') }} required>
+            </div>
+            <div class="input-group">
+                <label for="x">X:</label>
+                <input type="number" min="0" step="0.01" id="x" name="x" value={{ request.form.get('x', '') }} required>
+            </div>
+            <div class="input-group">
+                <label for="y">Y:</label>
+                <input type="number" min="0" step="0.01" id="y" name="y" value={{ request.form.get('y', '') }} required>
+            </div>
+            <div class="input-group">
+                <label for="z">Z:</label>
+                <input type="number" min="0" step="0.01" id="z" name="z" value={{ request.form.get('z', '') }} required>
+            </div>
+            <div class="input-group">
+                <label for="cut">Cut:</label>
+                <select id="cut" name="cut" required>
+                    <option value="Fair" {% if request.form.get('cut') == 'Fair' %}selected{% endif %}>Fair</option>
+                    <option value="Good" {% if request.form.get('cut') == 'Good' %}selected{% endif %}>Good</option>
+                    <option value="Very Good" {% if request.form.get('cut') == 'Very Good' %}selected{% endif %}>Very Good</option>
+                    <option value="Ideal" {% if request.form.get('cut') == 'Ideal' %}selected{% endif %}>Ideal</option>
+                    <option value="Premium" {% if request.form.get('cut') == 'Premium' %}selected{% endif %}>Premium</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="color">Color:</label>
+                <select id="color" name="color" required>
+                    <option value="D" {% if request.form.get('color') == 'D' %}selected{% endif %}>D</option>
+                    <option value="E" {% if request.form.get('color') == 'E' %}selected{% endif %}>E</option>
+                    <option value="F" {% if request.form.get('color') == 'F' %}selected{% endif %}>F</option>
+                    <option value="G" {% if request.form.get('color') == 'G' %}selected{% endif %}>G</option>
+                    <option value="H" {% if request.form.get('color') == 'H' %}selected{% endif %}>H</option>
+                    <option value="I" {% if request.form.get('color') == 'I' %}selected{% endif %}>I</option>
+                    <option value="J" {% if request.form.get('color') == 'J' %}selected{% endif %}>J</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="clarity">Clarity:</label>
+                <select id="clarity" name="clarity" required>
+                    <option value="I1" {% if request.form.get('clarity') == 'I1' %}selected{% endif %}>I1</option>
+                    <option value="SI1" {% if request.form.get('clarity') == 'SI1' %}selected{% endif %}>SI1</option>
+                    <option value="SI2" {% if request.form.get('clarity') == 'SI2' %}selected{% endif %}>SI2</option>
+                    <option value="VS1" {% if request.form.get('clarity') == 'VS1' %}selected{% endif %}>VS1</option>
+                    <option value="VS2" {% if request.form.get('clarity') == 'VS2' %}selected{% endif %}>VS2</option>
+                    <option value="VVS1" {% if request.form.get('clarity') == 'VVS1' %}selected{% endif %}>VVS1</option>
+                    <option value="VVS2" {% if request.form.get('clarity') == 'VVS2' %}selected{% endif %}>VVS2</option>
+                    <option value="IF" {% if request.form.get('clarity') == 'IF' %}selected{% endif %}>IF</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <button type="submit" class="calculate-btn">Calculate</button>
+            </div>
+        </form>
+        <div class="calculator2">
+            <div class="Result">Result: {{ result }}</div>
+        </div>
+    </div>
+</body>
+</html>
